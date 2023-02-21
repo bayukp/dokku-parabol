@@ -30,6 +30,17 @@
       })(gads, document)
     }
   </script>
+  <script>
+    tagId = window.__ACTION__.monetagId
+    if (tagId) {
+      (function (a, d) {
+        var meta = d.createElement('meta')
+        meta.setAttribute('name','monetag')
+        meta.setAttribute('content', tagId)
+        d.getElementsByTagName('head')[0].appendChild(meta);
+      })(gads, document)
+    }
+  </script>
   <title>Free Online Retrospectives | Parabol</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />

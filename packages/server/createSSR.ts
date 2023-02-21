@@ -26,6 +26,7 @@ const getClientKeys = () => {
     AUTH_GOOGLE_ENABLED: process.env.AUTH_GOOGLE_DISABLED !== 'true',
     AUTH_SSO_ENABLED: process.env.AUTH_SSO_DISABLED !== 'true',
     gads: process.env.GADS,
+    monetagId: process.env.MONETAG_ID,
     googleTagManagerId: process.env.GOOGLE_TAG_MANAGER_ID
   }
 }

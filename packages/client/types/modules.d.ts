@@ -42,6 +42,7 @@ interface Window {
     AUTH_GOOGLE_ENABLED: boolean
     AUTH_SSO_ENABLED: boolean
     gads: string
+    monetagId: string
     googleTagManagerId: string
   }
 }

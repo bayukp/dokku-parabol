@@ -23,9 +23,9 @@
     if (gads) {
       (function (a, d) {
         var scr = d.createElement('script')
-        scr.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + a
         scr.async = true
-        scr.crossorigin = 'anonymous'
+        scr.setAttribute('crossorigin','anonymous')
+        scr.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + a
         d.getElementsByTagName('head')[0].appendChild(scr);
       })(gads, document)
     }

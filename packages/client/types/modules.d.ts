@@ -41,6 +41,8 @@ interface Window {
     AUTH_INTERNAL_ENABLED: boolean
     AUTH_GOOGLE_ENABLED: boolean
     AUTH_SSO_ENABLED: boolean
+    gads: string
+    googleTagManagerId: string
   }
 }
 declare type Json = null | boolean | number | string | Json[] | {[key: string]: Json}

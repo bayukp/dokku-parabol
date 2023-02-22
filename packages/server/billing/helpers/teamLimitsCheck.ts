@@ -12,6 +12,7 @@ import {domainHasActiveDeals} from '../../hubSpot/hubSpotApi'
 import getPg from '../../postgres/getPg'
 import {appendUserFeatureFlagsQuery} from '../../postgres/queries/generated/appendUserFeatureFlagsQuery'
 import sendToSentry from '../../utils/sendToSentry'
+import removeTeamLimitsJobs from './removeTeamLimitsJobs'
 import sendTeamsLimitEmail from './sendTeamsLimitEmail'
 
 // Uncomment for easier testing
@@ -92,7 +93,6 @@ const isLimitExceeded = async (orgId: string, dataLoader: DataLoaderWorker) => {
     .distinct()
     .do((endedMeetingIds: RValue) => {
       return r
-        .db('actionDevelopment')
         .table('MeetingMember')
         .getAll(r.args(endedMeetingIds), {index: 'meetingId'})
         .group('teamId', 'meetingId')
@@ -141,9 +141,9 @@ export const maybeRemoveRestrictions = async (orgId: string, dataLoader: DataLoa
         .getAll(r.args(billingLeadersIds), {index: 'userId'})
         .filter({orgId})
         .update({suggestedTier: 'starter'})
-        .run()
+        .run(),
+      removeTeamLimitsJobs(orgId)
     ])
-
     dataLoader.get('organizations').clear(orgId)
   }
 }

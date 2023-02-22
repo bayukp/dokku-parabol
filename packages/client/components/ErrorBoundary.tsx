@@ -47,7 +47,7 @@ class ErrorBoundary extends Component<Props & {atmosphere: Atmosphere}, State> {
     // Catch errors in any components below and re-render with error message
     Sentry.withScope((scope) => {
       scope.setExtras(errorInfo as any)
-      scope.setLevel(Sentry.Severity.Fatal)
+      scope.setLevel('fatal')
       const eventId = Sentry.captureException(error)
       this.setState({
         error,

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import {captureException} from '@sentry/minimal'
+import {captureException} from '@sentry/browser'
 import graphql from 'babel-plugin-relay/macro'
 import React, {RefObject, useEffect, useMemo, useRef, useState} from 'react'
 import {createFragmentContainer} from 'react-relay'

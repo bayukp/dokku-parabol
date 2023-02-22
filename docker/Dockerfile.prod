@@ -1,4 +1,4 @@
-FROM node:18.14.2 as prod
+FROM node:18.14.0 as prod
 
 WORKDIR /parabol
 

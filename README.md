@@ -26,6 +26,16 @@ Then you can config the other .env value later. Please refer to upstream repo fo
 > `docker-compose -f docker-compose.yml -f ./docker/docker-compose.selfHosted.yml up -d`
 > instead to make the storage persistance
 
+If you saw connection refused when try to open the parabol app, since the migration and build need fully connected DB, after the container is created you might need to check parabol app log until you saw something like 
+
+```
+2023-02-10T02:45:26.698581809Z app[web.1]: 🔥🔥🔥 Server ID: 1. Ready for Sockets: Port 80 🔥🔥🔥
+2023-02-10T02:45:30.390679700Z app[web.1]: 💧💧💧 Server ID: 11. Ready for GraphQL Execution 💧💧💧
+2023-02-10T02:45:31.257729102Z app[web.1]: 💧💧💧 Server ID: 1. Ready for GraphQL Execution 💧💧💧
+```
+
+Then after that you can try to open again in the browser
+
 ## Dokku Deployment
 
 The most preferred way if you want to deploy it on server
